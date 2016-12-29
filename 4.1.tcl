@@ -3,146 +3,91 @@ puts "System"
 model basic -ndm 3 -ndf 3
 puts "restraint"
 node 1 0.000E+000 0.000E+000 0.000E+000
-node 2 7.620E+004 0.000E+000 1.143E+005
-node 3 1.524E+005 0.000E+000 0.000E+000
-node 4 2.286E+005 0.000E+000 1.143E+005
-node 5 3.048E+005 0.000E+000 0.000E+000
-node 6 3.810E+005 0.000E+000 1.143E+005
-node 7 4.572E+005 0.000E+000 0.000E+000
-node 8 5.334E+005 0.000E+000 1.143E+005
-node 9 6.096E+005 0.000E+000 0.000E+000
-node 10 0.000E+000 7.620E+004 0.000E+000
-node 11 7.620E+004 7.620E+004 1.143E+005
-node 12 1.524E+005 7.620E+004 0.000E+000
-node 13 2.286E+005 7.620E+004 1.143E+005
-node 14 3.048E+005 7.620E+004 0.000E+000
-node 15 3.810E+005 7.620E+004 1.143E+005
-node 16 4.572E+005 7.620E+004 0.000E+000
-node 17 5.334E+005 7.620E+004 1.143E+005
-node 18 6.096E+005 7.620E+004 0.000E+000
-puts "rigidDiaphragm"
+node 2 0.000E+000 3.000E+003 0.000E+000
+node 3 6.000E+003 0.000E+000 0.000E+000
+node 4 6.000E+003 3.000E+003 0.000E+000
+node 5 1.200E+004 0.000E+000 0.000E+000
+node 6 1.200E+004 3.000E+003 0.000E+000
+node 7 1.800E+004 0.000E+000 0.000E+000
+node 8 1.800E+004 3.000E+003 0.000E+000
+node 9 2.400E+004 0.000E+000 0.000E+000
+node 10 2.400E+004 3.000E+003 0.000E+000
+node 11 3.000E+003 0.000E+000 4.500E+003
+node 12 3.000E+003 3.000E+003 4.500E+003
+node 13 9.000E+003 0.000E+000 4.500E+003
+node 14 9.000E+003 3.000E+003 4.500E+003
+node 15 1.500E+004 0.000E+000 4.500E+003
+node 16 1.500E+004 3.000E+003 4.500E+003
+node 17 2.100E+004 0.000E+000 4.500E+003
+node 18 2.100E+004 3.000E+003 4.500E+003
 puts "node"
 fix 1 1 1 1 0 0 0;
+fix 2 1 1 1 0 0 0;
 fix 9 1 1 1 0 0 0;
 fix 10 1 1 1 0 0 0;
-fix 18 1 1 1 0 0 0;
-puts "Equal DOF"
 puts "material"
-uniaxialMaterial Elastic 1 1.379E+006
+uniaxialMaterial Elastic 1 1.999E+005
 uniaxialMaterial Elastic 2 2.482E+004
 uniaxialMaterial Elastic 3 1.999E+005
-##TH300X300X15X15 
-section Fiber 1 {
-fiber -3.048E+003 -3.620E+003 5.806E+005 1
-fiber -1.524E+003 -3.620E+003 5.806E+005 1
-fiber 0.000E+000 -3.620E+003 5.806E+005 1
-fiber 1.524E+003 -3.620E+003 5.806E+005 1
-fiber 3.048E+003 -3.620E+003 5.806E+005 1
-fiber -3.048E+003 3.620E+003 5.806E+005 1
-fiber -1.524E+003 3.620E+003 5.806E+005 1
-fiber 0.000E+000 3.620E+003 5.806E+005 1
-fiber 1.524E+003 3.620E+003 5.806E+005 1
-fiber 3.048E+003 3.620E+003 5.806E+005 1
-fiber 0.000E+000 -2.743E+003 5.226E+005 1
-fiber 0.000E+000 -1.372E+003 5.226E+005 1
-fiber 0.000E+000 0.000E+000 5.226E+005 1
-fiber 0.000E+000 1.372E+003 5.226E+005 1
-fiber 0.000E+000 2.743E+003 5.226E+005 1
-}
-##TH300X500X20X20 
-section Fiber 2 {
-fiber -3.048E+003 -6.096E+003 7.742E+005 1
-fiber -1.524E+003 -6.096E+003 7.742E+005 1
-fiber 0.000E+000 -6.096E+003 7.742E+005 1
-fiber 1.524E+003 -6.096E+003 7.742E+005 1
-fiber 3.048E+003 -6.096E+003 7.742E+005 1
-fiber -3.048E+003 6.096E+003 7.742E+005 1
-fiber -1.524E+003 6.096E+003 7.742E+005 1
-fiber 0.000E+000 6.096E+003 7.742E+005 1
-fiber 1.524E+003 6.096E+003 7.742E+005 1
-fiber 3.048E+003 6.096E+003 7.742E+005 1
-fiber 0.000E+000 -4.674E+003 1.187E+006 1
-fiber 0.000E+000 -2.337E+003 1.187E+006 1
-fiber 0.000E+000 0.000E+000 1.187E+006 1
-fiber 0.000E+000 2.337E+003 1.187E+006 1
-fiber 0.000E+000 4.674E+003 1.187E+006 1
-}
 puts "transformation"
 puts "element"
-element trussSection 1 1 2 1
-element trussSection 2 3 2 1
-element trussSection 3 3 4 1
-element trussSection 4 5 4 1
-element trussSection 5 5 6 1
-element trussSection 6 7 6 1
-element trussSection 7 7 8 1
-element trussSection 8 9 8 1
-element trussSection 9 10 11 1
-element trussSection 10 12 11 1
-element trussSection 11 12 13 1
-element trussSection 12 14 13 1
-element trussSection 13 14 15 1
-element trussSection 14 16 15 1
-element trussSection 15 16 17 1
-element trussSection 16 18 17 1
-element trussSection 17 11 2 2
-element trussSection 18 2 4 2
-element trussSection 19 4 13 2
-element trussSection 20 11 13 2
-element trussSection 21 8 17 2
-element trussSection 22 15 17 2
-element trussSection 23 13 15 2
-element trussSection 24 4 6 2
-element trussSection 25 6 15 2
-element trussSection 26 6 8 2
-element trussSection 27 11 4 1
-element trussSection 28 4 15 1
-element trussSection 29 15 8 1
-element trussSection 30 1 3 2
-element trussSection 31 3 5 2
-element trussSection 32 5 7 2
-element trussSection 33 7 9 2
-element trussSection 34 9 18 2
-element trussSection 35 16 18 2
-element trussSection 36 14 16 2
-element trussSection 37 12 14 2
-element trussSection 38 10 12 2
-element trussSection 39 16 7 2
-element trussSection 40 14 5 2
-element trussSection 41 3 12 2
-element trussSection 42 10 1 2
-element trussSection 43 10 3 1
-element trussSection 44 3 14 1
-element trussSection 45 14 7 1
-element trussSection 46 7 18 1
-puts "shell element"
-puts "SOLID element"
+element truss 1 11 12 1.305E+004 1
+element truss 2 13 14 1.305E+004 1
+element truss 3 15 16 1.305E+004 1
+element truss 4 17 18 1.305E+004 1
+element truss 5 11 13 2.120E+004 1
+element truss 6 13 15 2.120E+004 1
+element truss 7 15 17 2.120E+004 1
+element truss 8 12 14 2.120E+004 1
+element truss 9 14 16 2.120E+004 1
+element truss 10 16 18 2.120E+004 1
+element truss 11 1 11 1.305E+004 1
+element truss 12 3 11 1.305E+004 1
+element truss 13 3 13 1.305E+004 1
+element truss 14 5 13 1.305E+004 1
+element truss 15 5 15 1.305E+004 1
+element truss 16 7 15 1.305E+004 1
+element truss 17 7 17 1.305E+004 1
+element truss 18 9 17 1.305E+004 1
+element truss 19 2 12 1.305E+004 1
+element truss 20 4 12 1.305E+004 1
+element truss 21 4 14 1.305E+004 1
+element truss 22 6 14 1.305E+004 1
+element truss 23 6 16 1.305E+004 1
+element truss 24 8 16 1.305E+004 1
+element truss 25 8 18 1.305E+004 1
+element truss 26 10 18 1.305E+004 1
+element truss 27 12 13 1.305E+004 1
+element truss 28 13 16 1.305E+004 1
+element truss 29 16 17 1.305E+004 1
+element truss 30 1 2 1.305E+004 1
+element truss 31 3 4 1.305E+004 1
+element truss 32 5 6 1.305E+004 1
+element truss 33 7 8 1.305E+004 1
+element truss 34 9 10 1.305E+004 1
+element truss 35 1 3 2.120E+004 1
+element truss 36 3 5 2.120E+004 1
+element truss 37 5 7 2.120E+004 1
+element truss 38 7 9 2.120E+004 1
+element truss 39 2 4 2.120E+004 1
+element truss 40 4 6 2.120E+004 1
+element truss 41 6 8 2.120E+004 1
+element truss 42 8 10 2.120E+004 1
+element truss 43 2 3 1.305E+004 1
+element truss 44 3 6 1.305E+004 1
+element truss 45 6 7 1.305E+004 1
+element truss 46 7 10 1.305E+004 1
 puts "recorder"
 recorder Node -file node0.out -time -nodeRange 1 18 -dof 1 2 3 disp
-
-recorder Element -file ele0.out -time -eleRange 1 46 localForce
-recorder Element -file ele0_secs.out -time -eleRange 1 46 section 1 deformation
-recorder Element -file ele0_secn.out -time -eleRange 1 46 section 3 deformation
-recorder Node -file eigen1_node0.out -time -nodeRange 1 18 -dof 1 2 3 "eigen 1"
-recorder Node -file eigen2_node0.out -time -nodeRange 1 18 -dof 1 2 3 "eigen 2"
-recorder Node -file eigen3_node0.out -time -nodeRange 1 18 -dof 1 2 3 "eigen 3"
-recorder Node -file eigen4_node0.out -time -nodeRange 1 18 -dof 1 2 3 "eigen 4"
-recorder Node -file eigen5_node0.out -time -nodeRange 1 18 -dof 1 2 3 "eigen 5"
-recorder Node -file eigen6_node0.out -time -nodeRange 1 18 -dof 1 2 3 "eigen 6"
-recorder Node -file eigen7_node0.out -time -nodeRange 1 18 -dof 1 2 3 "eigen 7"
-recorder Node -file eigen8_node0.out -time -nodeRange 1 18 -dof 1 2 3 "eigen 8"
-recorder Node -file eigen9_node0.out -time -nodeRange 1 18 -dof 1 2 3 "eigen 9"
-recorder Node -file eigen10_node0.out -time -nodeRange 1 18 -dof 1 2 3 "eigen 10"
-recorder Node -file eigen11_node0.out -time -nodeRange 1 18 -dof 1 2 3 "eigen 11"
-recorder Node -file eigen12_node0.out -time -nodeRange 1 18 -dof 1 2 3 "eigen 12"
 recorder Node -file node5.out -time -node 5 -dof 1 2 3 disp
+recorder Element -file ele0.out -time -eleRange 1 46 localForce
 puts "loading"
 ## Load Case = DEAD
 pattern Plain 1 Linear {
-load 4 0.000E+000 0.000E+000 -1.000E+005 
-load 6 0.000E+000 0.000E+000 -1.000E+005 
-load 13 0.000E+000 0.000E+000 -1.000E+005
-load 15 0.000E+000 0.000E+000 -1.000E+005
+load 13 0.000E+000 0.000E+000 -1.000E+005 0.000E+000 0.000E+000 0.000E+000
+load 14 0.000E+000 0.000E+000 -1.000E+005 0.000E+000 0.000E+000 0.000E+000
+load 15 0.000E+000 0.000E+000 -1.000E+005 0.000E+000 0.000E+000 0.000E+000
+load 16 0.000E+000 0.000E+000 -1.000E+005 0.000E+000 0.000E+000 0.000E+000
 }
 puts "analysis"
 constraints Plain
